@@ -22,9 +22,12 @@ database.connect();
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
+const origin = process.env.FRON_KEY === "PRRODUCTION" ? "https://study-notion-azhar.vercel.app/" : "http://localhost:3000";
+
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        // origin: "http://localhost:3000",
+        origin: origin,
         credentials: true,
     })
 )
